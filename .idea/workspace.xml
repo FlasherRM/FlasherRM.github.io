@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b4b26525-de70-48bd-9674-daa400cf01da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/swiper-bundle.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/about-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/client1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/client2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/client3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/home-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/home-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/work-1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/work-2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/work-3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/work-4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/work-5.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/work-6.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/mixitup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/swiper-bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28i8xWgsxkaiAfJv3LmydyTi6wh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MTConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4b26525-de70-48bd-9674-daa400cf01da" name="Changes" comment="" />
+      <created>1651688294932</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651688294932</updated>
+      <workItem from="1651688301096" duration="508000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
