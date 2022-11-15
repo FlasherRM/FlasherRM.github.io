@@ -8,6 +8,8 @@ function result(value, type) {
     switch (type) {
         case 'sin':
             return Math.sin(value)
+        case 'round':
+            return Math.round(value)
         case 'cos':
             return Math.cos(value)
         case 'tan':
@@ -18,5 +20,13 @@ function result(value, type) {
             return Math.acos(value)
         case 'cbrt':
             return Math.cbrt(value)
+        case 'atan':
+            return Math.atan(value)
+        case 'fround':
+            return Math.fround(value)
+        case 'trunc':
+            return Math.trunc(value)
+        case 'sqrt':
+            return Math.sqrt(value)
     }
 }

@@ -5,11 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Математика</title>
     <style>
         input[name="button"] {
             margin-top: 10px;
             width: 300px;
+            height: 70px;
+        }
+        input, select {
+            height: 30px;
         }
     </style>
 </head>
@@ -18,12 +22,17 @@
     Знайти результат <br>
     <input TYPE="number" NAME="inputbox">
     <select name="type" id="type">
+        <option value="round">Округлення</option>
+        <option value="sqrt">Корінь</option>
         <option value="sin">Сінус</option>
         <option value="cos">Косінус</option>
         <option value="tan">Тангенс</option>
         <option value="abs">Абсолют</option>
         <option value="acos">Акросінус</option>
+        <option value="atan">Арктангенс</option>
         <option value="cbrt">Кубічний корень числа</option>
+        <option value="trunc">Цілу частину числа</option>
+        <option value="fround">Ближайше число, з плачаючою комою, одинарної точності</option>
     </select>
     <br>
 
