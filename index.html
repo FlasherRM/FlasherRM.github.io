@@ -6,11 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        input[name="button"] {
+            margin-top: 10px;
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
 <form action="" name="cosinus">
-    Знайти результат
-    <input TYPE="text" NAME="inputbox">
+    Знайти результат <br>
+    <input TYPE="number" NAME="inputbox">
     <select name="type" id="type">
         <option value="sin">Сінус</option>
         <option value="cos">Косінус</option>
@@ -19,8 +25,11 @@
         <option value="acos">Акросінус</option>
         <option value="cbrt">Кубічний корень числа</option>
     </select>
-    <input type="button" NAME="button" Value="Click" onClick="calculate(this.form)">
+    <br>
+
+    <input type="button" NAME="button" Value="Знайти" onClick="calculate(this.form)">
 </form>
+<h2>Результат: <span id="result"></span></h2>
 </body>
 <script src="script.js"></script>
 </html>

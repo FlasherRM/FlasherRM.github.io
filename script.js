@@ -1,7 +1,7 @@
 function calculate(form) {
     let value = form.inputbox.value;
     const type = form.type.value;
-    alert(result(value, type))
+    document.getElementById('result').innerHTML = result(value, type);
 }
 
 function result(value, type) {
