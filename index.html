@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Speech-to-Text</title>
+    <title>Speech Recognition</title>
+    <script>
+        let recognition = new window.webkitSpeechRecognition();
+        recognition.continuous = true;
+        recognition.lang = "uk-UA";
+        recognition.interimResults = true;
+
+        let recognizing = false;
+        let ignoreEnd = false;
+        let finalTranscript = "";
+
+        recognition.onstart = function() {
+            recognizing = true;
+            console.log("Speech recognition service started");
+        };
+
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error: ", event.error);
+        };
+
+        recognition.onend = function() {
+            recognizing = false;
+            if (ignoreEnd) {
+                return;
+            }
+            console.log("Speech recognition service ended");
+        };
+
+        recognition.onresult = function(event) {
+            let interimTranscript = "";
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                let transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    finalTranscript += transcript;
+                    console.log(`api request ${transcript}`)
+                } else {
+                    interimTranscript += transcript;
+                }
+            }
+            console.log("Final transcript: ", finalTranscript);
+            console.log("Interim transcript: ", interimTranscript);
+
+            let lastSpeak;
+            if (!finalTranscript && interimTranscript && Date.now() - lastSpeak > 2000) {
+                console.log("Sending request to API...");
+                lastSpeak = Date.now(); // Update the last speak time
+                // Call your API function here and pass the interimTranscript as a parameter
+            }
+        };
+
+        function startRecognition() {
+            if (recognizing) {
+                recognition.stop();
+                return;
+            }
+            finalTranscript = "";
+            recognition.start();
+            console.log("Speech recognition service started");
+        }
+    </script>
 </head>
 <body>
-<button id="start">Start</button>
-<button id="stop">Stop</button>
-<p id="text"></p>
-<script src="https://cdn.jsdelivr.net/npm/@google-cloud/speech/build/protos/protos.js"></script>
-<script>
-    const startButton = document.getElementById('start');
-    const stopButton = document.getElementById('stop');
-    const output = document.getElementById('text');
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = 'uk-UA';
-
-    let finalTranscript = '';
-    recognition.onresult = (event) => {
-        let interimTranscript = '';
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-            let transcript = event.results[i][0].transcript;
-            if (event.results[i].isFinal) {
-                finalTranscript += transcript;
-            } else {
-                interimTranscript += transcript;
-            }
-        }
-        output.innerHTML = finalTranscript + interimTranscript;
-    };
-
-    recognition.onend = () => {
-        // // Код для выполнения после завершения распознавания речи
-        // output.innerHTML += 'Распознавание речи завершено.';
-
-        // Код для выполнения после завершения распознавания речи
-        output.innerHTML += 'Распознавание речи завершено.';
-        setTimeout(() => {
-            alert(output.innerHTML);
-        }, 1000);
-    };
-
-    startButton.addEventListener('click', () => {
-        finalTranscript = '';
-        recognition.start();
-        output.innerHTML = 'Распознавание речи началось.';
-    });
-
-    stopButton.addEventListener('click', () => {
-        recognition.stop();
-    });
-</script>
+<button onclick="startRecognition()">Start/Stop Recognition</button>
 </body>
 </html>
