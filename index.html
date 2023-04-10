@@ -2,68 +2,80 @@
 <html>
 <head>
     <title>Speech Recognition</title>
-    <script>
-        let recognition = new window.webkitSpeechRecognition();
-        recognition.continuous = true;
-        recognition.lang = "uk-UA";
-        recognition.interimResults = true;
-
-        let recognizing = false;
-        let ignoreEnd = false;
-        let finalTranscript = "";
-
-        recognition.onstart = function() {
-            recognizing = true;
-            console.log("Speech recognition service started");
-        };
-
-        recognition.onerror = function(event) {
-            console.error("Speech recognition error: ", event.error);
-        };
-
-        recognition.onend = function() {
-            recognizing = false;
-            if (ignoreEnd) {
-                return;
-            }
-            console.log("Speech recognition service ended");
-        };
-
-        recognition.onresult = function(event) {
-            let interimTranscript = "";
-            for (let i = event.resultIndex; i < event.results.length; ++i) {
-                let transcript = event.results[i][0].transcript;
-                if (event.results[i].isFinal) {
-                    finalTranscript += transcript;
-                    console.log(`api request ${transcript}`)
-                    alert(`мы отправили ${transcript}`)
-                } else {
-                    interimTranscript += transcript;
-                }
-            }
-            console.log("Final transcript: ", finalTranscript);
-            console.log("Interim transcript: ", interimTranscript);
-
-            let lastSpeak;
-            if (!finalTranscript && interimTranscript && Date.now() - lastSpeak > 2000) {
-                console.log("Sending request to API...");
-                lastSpeak = Date.now(); // Update the last speak time
-                // Call your API function here and pass the interimTranscript as a parameter
-            }
-        };
-
-        function startRecognition() {
-            if (recognizing) {
-                recognition.stop();
-                return;
-            }
-            finalTranscript = "";
-            recognition.start();
-            console.log("Speech recognition service started");
+    <style>
+        body {
+            background-color: rgb(11, 15, 37);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    </script>
+        button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 60px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+
+}
+
+#transcription {
+    position: absolute;
+    opacity: 20%;
+    font-size: 20px;
+}
+    </style>
 </head>
 <body>
-<button onclick="startRecognition()">Start/Stop Recognition</button>
+<button id="record-button" onclick="startRecognition()">Start</button>
+<div id="transcription"></div>
+
+<script>
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.continuous = true;
+recognition.interimResults = true;
+
+let isRecording = false;
+
+function startRecognition() {
+  if (!isRecording) {
+    recognition.start();
+    isRecording = true;
+    document.getElementById("record-button").innerHTML = "Stop";
+  } else {
+    recognition.stop();
+    isRecording = false;
+    document.getElementById("record-button").innerHTML = "Start";
+  }
+}
+
+recognition.onresult = function(event) {
+  const currentTranscript = event.results[event.results.length - 1][0].transcript;
+  document.getElementById("transcription").innerHTML = currentTranscript;
+  if (event.results[event.results.length - 1].isFinal) {
+    sendTranscriptionToAPI(currentTranscript);
+  }
+}
+
+recognition.onend = function() {
+  if (isRecording) {
+    recognition.start();
+  }
+}
+
+function sendTranscriptionToAPI(transcription) {
+  // отправка на API
+  console.log("Данные отправлены на API: " + transcription);
+  alert('Data sent to api' + transcription);
+  document.getElementById("transcription").innerHTML = "";
+}
+</script>
 </body>
 </html>
